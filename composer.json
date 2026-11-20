@@ -33,6 +33,13 @@
         }
     },
     "scripts": {
+        "lint": "pint --test",
+        "analyse": "phpstan analyse",
+        "verify": [
+            "@lint",
+            "@analyse",
+            "@php artisan test"
+        ],
         "setup": [
             "composer install",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
